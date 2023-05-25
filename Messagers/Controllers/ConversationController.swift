@@ -12,9 +12,9 @@ class ConversationController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
+      
         
-//        DataBaseManager.shared.test()
+
         
     }
 
