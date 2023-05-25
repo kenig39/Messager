@@ -48,6 +48,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="Hnj-oc-Iq2"/>
+                    <connections>
+                        <outlet property="tableView" destination="UvL-bq-n5X" id="7Ut-eM-rF6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DaF-tl-MVj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
