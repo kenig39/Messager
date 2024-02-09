@@ -17,6 +17,8 @@
 		FAFB5A3D2B76BFB3009A41AA /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFB5A3C2B76BFB2009A41AA /* RegisterViewController.swift */; };
 		FAFB5A3F2B76C00B009A41AA /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFB5A3E2B76C00B009A41AA /* PhotoViewController.swift */; };
 		FAFB5A422B76C03D009A41AA /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFB5A412B76C03D009A41AA /* VideoViewController.swift */; };
+		FAFB5A442B76C092009A41AA /* NewConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFB5A432B76C092009A41AA /* NewConversationViewController.swift */; };
+		FAFB5A462B76C0A6009A41AA /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFB5A452B76C0A6009A41AA /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		FAFB5A3C2B76BFB2009A41AA /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		FAFB5A3E2B76C00B009A41AA /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		FAFB5A412B76C03D009A41AA /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
+		FAFB5A432B76C092009A41AA /* NewConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationViewController.swift; sourceTree = "<group>"; };
+		FAFB5A452B76C0A6009A41AA /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,10 +82,11 @@
 			isa = PBXGroup;
 			children = (
 				FAFB5A242B76B9D5009A41AA /* ConversationController.swift */,
-				FAFB5A3A2B76BF40009A41AA /* LoginViewController.swift */,
-				FAFB5A3C2B76BFB2009A41AA /* RegisterViewController.swift */,
+				FAFB5A472B76C5E8009A41AA /* Login */,
 				FAFB5A3E2B76C00B009A41AA /* PhotoViewController.swift */,
 				FAFB5A412B76C03D009A41AA /* VideoViewController.swift */,
+				FAFB5A432B76C092009A41AA /* NewConversationViewController.swift */,
+				FAFB5A452B76C0A6009A41AA /* ProfileViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -125,6 +130,15 @@
 				FAFB5A2B2B76B9D7009A41AA /* LaunchScreen.storyboard */,
 			);
 			path = StoryBoard;
+			sourceTree = "<group>";
+		};
+		FAFB5A472B76C5E8009A41AA /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				FAFB5A3C2B76BFB2009A41AA /* RegisterViewController.swift */,
+				FAFB5A3A2B76BF40009A41AA /* LoginViewController.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,9 +214,11 @@
 			files = (
 				FAFB5A3B2B76BF40009A41AA /* LoginViewController.swift in Sources */,
 				FAFB5A422B76C03D009A41AA /* VideoViewController.swift in Sources */,
+				FAFB5A442B76C092009A41AA /* NewConversationViewController.swift in Sources */,
 				FAFB5A3D2B76BFB3009A41AA /* RegisterViewController.swift in Sources */,
 				FAFB5A252B76B9D5009A41AA /* ConversationController.swift in Sources */,
 				FAFB5A212B76B9D5009A41AA /* AppDelegate.swift in Sources */,
+				FAFB5A462B76C0A6009A41AA /* ProfileViewController.swift in Sources */,
 				FAFB5A232B76B9D5009A41AA /* SceneDelegate.swift in Sources */,
 				FAFB5A3F2B76C00B009A41AA /* PhotoViewController.swift in Sources */,
 			);
