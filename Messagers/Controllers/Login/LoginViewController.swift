@@ -114,6 +114,10 @@ class LoginViewController: UIViewController {
                                  height: 52)
     }
     @objc private func loginButtonTapped() {
+        
+        emailField.resignFirstResponder()
+        passwordField.resignFirstResponder()
+        
         guard let email = emailField.text, let password = passwordField.text, !email.isEmpty, !password.isEmpty, password.count >= 6 else {
             alertUserLoginError()
             return
@@ -123,7 +127,7 @@ class LoginViewController: UIViewController {
     }
     
     func alertUserLoginError() {
-        let alert = UIAlertController(title: "Woops", message: "Please enter all informaton to ", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Woops", message: "Please enter all informaton to log in ", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
         present(alert, animated: true)
     }
@@ -142,6 +146,9 @@ extension LoginViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == emailField {
             passwordField.becomeFirstResponder()
+        }
+        else if textField == passwordField {
+            loginButtonTapped()
         }
         return true
     }
