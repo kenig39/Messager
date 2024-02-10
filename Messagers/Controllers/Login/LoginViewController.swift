@@ -74,6 +74,10 @@ class LoginViewController: UIViewController {
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Register", style: .done, target: self, action: #selector(didTapRegister))
         
+        loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
+        
+        emailField.delegate = self
+        passwordField.delegate = self
         
         //Add subViews
         view.addSubview(scrolView)
@@ -109,6 +113,20 @@ class LoginViewController: UIViewController {
                                   width: scrolView.width-60,
                                  height: 52)
     }
+    @objc private func loginButtonTapped() {
+        guard let email = emailField.text, let password = passwordField.text, !email.isEmpty, !password.isEmpty, password.count >= 6 else {
+            alertUserLoginError()
+            return
+        }
+        
+        // priavte
+    }
+    
+    func alertUserLoginError() {
+        let alert = UIAlertController(title: "Woops", message: "Please enter all informaton to ", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
+        present(alert, animated: true)
+    }
     
     @objc private func didTapRegister(){
         let vc = RegisterViewController()
@@ -116,16 +134,16 @@ class LoginViewController: UIViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+ 
 
 }
   
+extension LoginViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == emailField {
+            passwordField.becomeFirstResponder()
+        }
+        return true
+    }
+}
  
