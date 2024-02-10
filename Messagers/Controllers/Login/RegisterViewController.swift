@@ -11,7 +11,7 @@ class RegisterViewController: UIViewController {
 
     private let imageView: UIImageView = {
        let imageView = UIImageView()
-        imageView.image = UIImage(named: "logo")
+        imageView.image = UIImage(systemName: "person")
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
@@ -119,6 +119,10 @@ class RegisterViewController: UIViewController {
         scrolView.addSubview(emailField)
         scrolView.addSubview(passwordField)
         scrolView.addSubview(registerButton)
+        
+        imageView.isUserInteractionEnabled = true
+        scrolView.isUserInteractionEnabled = true
+        
         
         let gesture = UITapGestureRecognizer(target: self, action: #selector(didTapChangeProfilePic))
 //        gesture.numberOfTouchesRequired =
