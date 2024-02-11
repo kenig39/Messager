@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA20ED362B79297000AFCB9F /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA20ED352B79297000AFCB9F /* Extentions.swift */; };
 		FAFB5A212B76B9D5009A41AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFB5A202B76B9D5009A41AA /* AppDelegate.swift */; };
 		FAFB5A232B76B9D5009A41AA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFB5A222B76B9D5009A41AA /* SceneDelegate.swift */; };
 		FAFB5A252B76B9D5009A41AA /* ConversationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFB5A242B76B9D5009A41AA /* ConversationController.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA20ED352B79297000AFCB9F /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
 		FAFB5A1D2B76B9D5009A41AA /* Messagers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Messagers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAFB5A202B76B9D5009A41AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAFB5A222B76B9D5009A41AA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 			children = (
 				FAFB5A222B76B9D5009A41AA /* SceneDelegate.swift */,
 				FAFB5A202B76B9D5009A41AA /* AppDelegate.swift */,
+				FA20ED352B79297000AFCB9F /* Extentions.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 			files = (
 				FAFB5A3B2B76BF40009A41AA /* LoginViewController.swift in Sources */,
 				FAFB5A422B76C03D009A41AA /* VideoViewController.swift in Sources */,
+				FA20ED362B79297000AFCB9F /* Extentions.swift in Sources */,
 				FAFB5A442B76C092009A41AA /* NewConversationViewController.swift in Sources */,
 				FAFB5A3D2B76BFB3009A41AA /* RegisterViewController.swift in Sources */,
 				FAFB5A252B76B9D5009A41AA /* ConversationController.swift in Sources */,
