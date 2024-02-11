@@ -1,9 +1,4 @@
-//
-//  RegisterViewController.swift
-//  Messagers
-//
-//  Created by Alexander on 09.02.2024.
-//
+
 
 import UIKit
 
@@ -133,7 +128,7 @@ class RegisterViewController: UIViewController {
     }
     
     @objc private func didTapChangeProfilePic() {
-        print(" did tap change profile")
+       presentPhotoActionSheet()
     }
     
     override func viewDidLayoutSubviews() {
@@ -223,3 +218,37 @@ extension RegisterViewController: UITextFieldDelegate {
         return true
     }
 }
+
+extension RegisterViewController: UIImagePickerControllerDelegate {
+    
+    func presentPhotoActionSheet(){
+        let actionSheet = UIAlertController(title: "Profile Picture", message: "How would you like to select a picture ", preferredStyle: .actionSheet)
+        
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        
+        
+        actionSheet.addAction(UIAlertAction(title: "Take Photo", style: .default, handler: { _ in
+            
+        }))
+        
+        actionSheet.addAction(UIAlertAction(title: "Chose Photo", style: .default, handler: { _ in
+            
+        }))
+        
+        present(actionSheet, animated: true)
+        
+    }
+    
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+    }
+    
+   
+}
+
+
