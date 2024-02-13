@@ -7,7 +7,7 @@ class RegisterViewController: UIViewController {
 
     private let imageView: UIImageView = {
        let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "person")
+        imageView.image = UIImage(systemName: "person.circle")
         imageView.contentMode = .scaleAspectFit
         imageView.layer.masksToBounds = true
         imageView.layer.borderWidth = 2
@@ -192,23 +192,42 @@ class RegisterViewController: UIViewController {
         }
         
        // FireBase log In
+        
+        DataBaseManager.shared.userExist(with: email, complition: { exists in
+            guard !exists else {
+                //user allready exist
+                return
+            }
+            
+        })
        
-        FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password, completion: { authResult, error  in
-            guard let result = authResult, error == nil else {
+        FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password, completion: { [weak self] authResult, error  in
+            guard let strongSelf = self else {
+                return
+            }
+            guard authResult != nil, error == nil else {
                 print ("Error ///.........")
                 return
                 
             }
-            let user = result.user
-            print("crated user: \(user)")
+           
+            DataBaseManager.shared.insertUser(with: ChatAppUser(firstName: firstName,
+                                                                lastName: lastName, emailAddres: email))
+            strongSelf.navigationController?.dismiss(animated: true)
         })
         
     }
     
-    func alertUserLoginError() {
-        let alert = UIAlertController(title: "Woops", message: "Please enter all informaton to create a new account. ", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
-        present(alert, animated: true)
+    func alertUserLoginError(message: String = "Please enter all informaton to create a new account. ") {
+        let alert = UIAlertController(title: "Woops",
+                                      message: message ,
+                                      preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Dismiss",
+                                      style: .cancel,
+                                      handler: nil))
+        
+              present(alert, animated: true)
     }
     
     @objc private func didTapRegister(){

@@ -10,6 +10,7 @@
 		9FD450E6EEDC8059A26480B8 /* Pods_Messagers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 168E390561F4DC9543B3D9F0 /* Pods_Messagers.framework */; };
 		FA20ED362B79297000AFCB9F /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA20ED352B79297000AFCB9F /* Extentions.swift */; };
 		FA3ADF252B7A99C50019D6CA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA3ADF242B7A99C40019D6CA /* GoogleService-Info.plist */; };
+		FAF225A32B7BCB0700469DC3 /* DataBaseManage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF225A22B7BCB0700469DC3 /* DataBaseManage.swift */; };
 		FAFB5A212B76B9D5009A41AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFB5A202B76B9D5009A41AA /* AppDelegate.swift */; };
 		FAFB5A232B76B9D5009A41AA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFB5A222B76B9D5009A41AA /* SceneDelegate.swift */; };
 		FAFB5A252B76B9D5009A41AA /* ConversationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFB5A242B76B9D5009A41AA /* ConversationController.swift */; };
@@ -30,6 +31,7 @@
 		EF3C01DB911B59D14427E648 /* Pods-Messagers.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Messagers.debug.xcconfig"; path = "Target Support Files/Pods-Messagers/Pods-Messagers.debug.xcconfig"; sourceTree = "<group>"; };
 		FA20ED352B79297000AFCB9F /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
 		FA3ADF242B7A99C40019D6CA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FAF225A22B7BCB0700469DC3 /* DataBaseManage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseManage.swift; sourceTree = "<group>"; };
 		FAFB5A1D2B76B9D5009A41AA /* Messagers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Messagers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAFB5A202B76B9D5009A41AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAFB5A222B76B9D5009A41AA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				FAFB5A222B76B9D5009A41AA /* SceneDelegate.swift */,
 				FAFB5A202B76B9D5009A41AA /* AppDelegate.swift */,
 				FA20ED352B79297000AFCB9F /* Extentions.swift */,
+				FAF225A22B7BCB0700469DC3 /* DataBaseManage.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 				FAFB5A3D2B76BFB3009A41AA /* RegisterViewController.swift in Sources */,
 				FAFB5A252B76B9D5009A41AA /* ConversationController.swift in Sources */,
 				FAFB5A212B76B9D5009A41AA /* AppDelegate.swift in Sources */,
+				FAF225A32B7BCB0700469DC3 /* DataBaseManage.swift in Sources */,
 				FAFB5A462B76C0A6009A41AA /* ProfileViewController.swift in Sources */,
 				FAFB5A232B76B9D5009A41AA /* SceneDelegate.swift in Sources */,
 				FAFB5A3F2B76C00B009A41AA /* PhotoViewController.swift in Sources */,
