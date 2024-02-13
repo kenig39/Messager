@@ -193,29 +193,31 @@ class RegisterViewController: UIViewController {
         
        // FireBase log In
         
-        DataBaseManager.shared.userExist(with: email, complition: { exists in
-            guard !exists else {
-                //user allready exist
-                return
-            }
-            
-        })
-       
-        FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password, completion: { [weak self] authResult, error  in
+        DataBaseManager.shared.userExist(with: email, complition: { [weak self] exists in
             guard let strongSelf = self else {
                 return
             }
-            guard authResult != nil, error == nil else {
-                print ("Error ///.........")
+            
+            guard !exists else {
+                //user allready exist
+                strongSelf.alertUserLoginError(message: "Loks like a user account for that email address alredy exist.")
                 return
-                
             }
-           
-            DataBaseManager.shared.insertUser(with: ChatAppUser(firstName: firstName,
-                                                                lastName: lastName, emailAddres: email))
-            strongSelf.navigationController?.dismiss(animated: true)
+            
+            FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password, completion: { authResult, error  in
+                
+                guard authResult != nil, error == nil else {
+                    print ("Error ///.........")
+                    return
+                    
+                }
+                
+                DataBaseManager.shared.insertUser(with: ChatAppUser(firstName: firstName,
+                                                                    lastName: lastName, emailAddres: email))
+                
+                strongSelf.navigationController?.dismiss(animated: true)
+            })
         })
-        
     }
     
     func alertUserLoginError(message: String = "Please enter all informaton to create a new account. ") {
