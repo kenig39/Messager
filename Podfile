@@ -5,8 +5,16 @@ target 'Messagers' do
   
   use_frameworks!
 
-  pod 'Firebase/Core'
-  pod 'Firebase/Auth'
-  pod 'Firebase/Database'
+pod 'Firebase/Core'
+pod 'Firebase/Auth'
+pod 'Firebase/Database'
+
+
+pod 'GoogleSignIn'
+  
+pod 'MessageKit' 
+pod 'JGProgressHUD'
+pod 'RealmSwift'
+pod 'SDWebImage'
 
 end
