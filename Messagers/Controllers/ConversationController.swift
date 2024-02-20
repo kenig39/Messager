@@ -7,9 +7,13 @@
 
 import UIKit
 import FirebaseAuth
+import JGProgressHUD
 
 class ConversationController: UIViewController {
 
+    private let spinner = JGProgressHUD(style: .dark)
+    
+    
     private let tableView: UITableView = {
         let table = UITableView()
         table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
@@ -22,6 +26,7 @@ class ConversationController: UIViewController {
         super.viewDidLoad()
         view.addSubview(tableView)
         view.addSubview(noConversationLabel)
+        fetchConversation()
         setupTableView()
         
     }
@@ -48,6 +53,9 @@ class ConversationController: UIViewController {
         tableView.dataSource = self
     }
     
+    private func fetchConversation() {
+        
+    }
     
     
        // let isloggedIn = UserDefaults.standard.bool(forKey: "logged_in")
@@ -62,4 +70,25 @@ class ConversationController: UIViewController {
            }
         }
        
-
+extension ConversationController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.textLabel?.text = "hello All"
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let vc = ChatViewController()
+        vc.title = "Jon Smit"
+        vc.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+}
