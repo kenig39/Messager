@@ -31,6 +31,10 @@ class ConversationController: UIViewController {
         
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        tableView.frame = view.bounds
+    }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -54,7 +58,7 @@ class ConversationController: UIViewController {
     }
     
     private func fetchConversation() {
-        
+        tableView.isHidden = false
     }
     
     
@@ -79,6 +83,7 @@ extension ConversationController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = "hello All"
+        cell.accessoryType = .disclosureIndicator
         return cell
     }
     
