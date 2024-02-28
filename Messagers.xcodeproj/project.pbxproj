@@ -10,6 +10,7 @@
 		4A4C34B26A0CE17DF5E51DDE /* Pods_Messagers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A87F97FCBF89B2B6F7B704C4 /* Pods_Messagers.framework */; };
 		FA20ED362B79297000AFCB9F /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA20ED352B79297000AFCB9F /* Extentions.swift */; };
 		FA5574172B8A838C00E47BF1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA5574162B8A838C00E47BF1 /* GoogleService-Info.plist */; };
+		FA6E054C2B8FC9AC0054CDF8 /* StorageManager .swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6E054B2B8FC9AC0054CDF8 /* StorageManager .swift */; };
 		FAD6C77A2B85390100C4E277 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD6C7792B85390100C4E277 /* ChatViewController.swift */; };
 		FAF225A32B7BCB0700469DC3 /* DataBaseManage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF225A22B7BCB0700469DC3 /* DataBaseManage.swift */; };
 		FAFB5A212B76B9D5009A41AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFB5A202B76B9D5009A41AA /* AppDelegate.swift */; };
@@ -32,6 +33,7 @@
 		A87F97FCBF89B2B6F7B704C4 /* Pods_Messagers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Messagers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA20ED352B79297000AFCB9F /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
 		FA5574162B8A838C00E47BF1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FA6E054B2B8FC9AC0054CDF8 /* StorageManager .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StorageManager .swift"; sourceTree = "<group>"; };
 		FAD6C7792B85390100C4E277 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		FAF225A22B7BCB0700469DC3 /* DataBaseManage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseManage.swift; sourceTree = "<group>"; };
 		FAFB5A1D2B76B9D5009A41AA /* Messagers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Messagers.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -155,6 +157,7 @@
 				FAFB5A202B76B9D5009A41AA /* AppDelegate.swift */,
 				FA20ED352B79297000AFCB9F /* Extentions.swift */,
 				FAF225A22B7BCB0700469DC3 /* DataBaseManage.swift */,
+				FA6E054B2B8FC9AC0054CDF8 /* StorageManager .swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -318,6 +321,7 @@
 				FAFB5A3D2B76BFB3009A41AA /* RegisterViewController.swift in Sources */,
 				FAFB5A252B76B9D5009A41AA /* ConversationController.swift in Sources */,
 				FAFB5A212B76B9D5009A41AA /* AppDelegate.swift in Sources */,
+				FA6E054C2B8FC9AC0054CDF8 /* StorageManager .swift in Sources */,
 				FAF225A32B7BCB0700469DC3 /* DataBaseManage.swift in Sources */,
 				FAFB5A462B76C0A6009A41AA /* ProfileViewController.swift in Sources */,
 				FAFB5A232B76B9D5009A41AA /* SceneDelegate.swift in Sources */,
