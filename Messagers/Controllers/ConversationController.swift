@@ -46,7 +46,7 @@ class ConversationController: UIViewController {
     @objc func didTapComposeButton(){
         let vc = NewConversationViewController()
         let navVC = UINavigationController(rootViewController: vc)
-        present(vc,animated: true)
+        present(navVC,animated: true)
     }
     
     private let noConversationLabel: UILabel = {

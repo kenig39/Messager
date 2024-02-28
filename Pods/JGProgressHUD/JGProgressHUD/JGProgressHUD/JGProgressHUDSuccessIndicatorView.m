@@ -9,7 +9,7 @@
 #import "JGProgressHUDSuccessIndicatorView.h"
 #import "JGProgressHUD.h"
 
-static UIBezierPath *successBezierPath() {
+static UIBezierPath *successBezierPath(void) {
     static UIBezierPath *path;
     
     static dispatch_once_t onceToken;

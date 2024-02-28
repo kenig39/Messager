@@ -55,6 +55,5 @@ class NewConversationViewController: UIViewController {
 }
 extension NewConversationViewController: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        <#code#>
     }
 }
