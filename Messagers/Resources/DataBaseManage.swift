@@ -38,11 +38,18 @@ extension DataBaseManager {
     }
     
     /// inserts new user to daatabase
-    public func insertUser(with user: ChatAppUser){
+    public func insertUser(with user: ChatAppUser, complition: @escaping (Bool) -> Void){
         database.child(user.safeEmail).setValue([
             "first_name": user.firstName,
             "last_name": user.lastName
-        ])
+        ], withCompletionBlock: { error, _ in
+            guard error == nil else {
+                print("failed ot write to dataBase")
+                complition(false)
+                return
+            }
+            complition(true)
+        })
     }
 }
 
