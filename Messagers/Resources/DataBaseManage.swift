@@ -57,11 +57,15 @@ struct ChatAppUser {
     let firstName: String
     let lastName: String
     let emailAddres: String
-  //  let profilePictureUrl: URL
+  
     
     var safeEmail: String {
         var safeEmail = emailAddres.replacingOccurrences(of: ".", with: "_")
         safeEmail = safeEmail.replacingOccurrences(of: "@", with: "_")
         return safeEmail
+    }
+    
+    var profilePictureFilenmae: String {
+        return "\(safeEmail)_profile_picture.png"
     }
 }

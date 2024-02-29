@@ -228,6 +228,10 @@ class RegisterViewController: UIViewController {
                 DataBaseManager.shared.insertUser(with: chatUser, complition: { succes in
                     if succes {
                         // upload image
+                        guard let image = strongSelf.imageView.image, let data = image.pngData() else {
+                            return
+                        }
+                        let fileName = 
                     }
                 } )
                 
