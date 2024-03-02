@@ -52,9 +52,22 @@ class ProfileViewController: UIViewController {
         
         headerView.addSubview(imageView)
         
+        StorageManager.shared.downLoad(for: path, completion: { [weak self] result in
+            switch result {
+            case .success(let url):
+                self?.downLoadIamge(imageView: imageView, url: url)
+            case .failure(let error):
+                print("Failed to get downLoad  url: \(error)")
+            }
+            
+        })
+        
         return headerView
     }
     
+    func downLoadIamge(imageView: UIImageView, url: URL) {
+        
+    }
 
 }
 extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
