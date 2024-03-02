@@ -135,6 +135,7 @@ class LoginViewController: UIViewController {
             guard let strongSelf = self else {
                 return
             }
+            
             DispatchQueue.main.async {
                 strongSelf.spinner.dismiss()
             }
@@ -146,6 +147,9 @@ class LoginViewController: UIViewController {
             }
             
             let user = result.user
+            
+            UserDefaults.standard.set(email, forKey: "email")
+            
             print("Logget In user: \(user)")
             strongSelf.navigationController?.dismiss(animated: true)
         })
