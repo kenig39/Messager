@@ -182,7 +182,7 @@ class RegisterViewController: UIViewController {
         passwordField.resignFirstResponder()
         
         guard let firstName = firstNameField.text,
-              let lastName = firstNameField.text,
+              let lastName = lastNameField.text,
               let email = emailField.text,
               let password = passwordField.text,
               !firstName.isEmpty,

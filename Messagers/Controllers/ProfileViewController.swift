@@ -39,6 +39,7 @@ class ProfileViewController: UIViewController {
                                         height: 300))
         
         headerView.backgroundColor = .link
+        
         let imageView = UIImageView(frame: CGRect(x: (headerView.width-150) / 2,
                                                    y: 75,
                                                    width: 150,
@@ -49,10 +50,11 @@ class ProfileViewController: UIViewController {
         imageView.layer.borderColor = UIColor.white.cgColor
         imageView.layer.borderWidth = 3
         imageView.layer.masksToBounds = true
+        imageView.layer.cornerRadius = imageView.width/2
         
         headerView.addSubview(imageView)
         
-        StorageManager.shared.downLoad(for: path, completion: { [weak self] result in
+        StorageManager.shared.downLoadUrl(for: path, completion: { [weak self] result in
             switch result {
             case .success(let url):
                 self?.downLoadIamge(imageView: imageView, url: url)
@@ -66,7 +68,15 @@ class ProfileViewController: UIViewController {
     }
     
     func downLoadIamge(imageView: UIImageView, url: URL) {
-        
+        URLSession.shared.dataTask(with: url, completionHandler: { data, _, error in
+            guard let data = data, error == nil else {
+                return
+            }
+            DispatchQueue.main.async {
+                let image = UIImage(data: data)
+                imageView.image = image
+            }
+        }).resume()
     }
 
 }
