@@ -56,8 +56,38 @@ extension DataBaseManager {
             }
             
             self.database.child("users").observeSingleEvent(of: .value, with: { snapshot in
-                
-                
+                if var usersCollections = snapshot.value as? [[String: String]] {
+                    // append to user dictionary
+                    let newElement = [
+                        "name": user.firstName + " " + user.lastName,
+                        "email": user.safeEmail
+                    ]
+                    usersCollections.append(newElement)
+                    
+                    self.database.child("users").setValue(usersCollections, withCompletionBlock: { error, _ in
+                        guard error == nil else {
+                            complition(false)
+                            return
+                        }
+                        complition(true)
+                    })
+                }
+                else {
+                    //create that array
+                    let newCollection: [[String: String]] = [
+                        ["name": user.firstName + "" + user.lastName,
+                         "email": user.safeEmail
+                        ]
+                        
+                    ]
+                    self.database.child("users").setValue(newCollection, withCompletionBlock: { error, _ in
+                        guard error == nil else {
+                            complition(false)
+                            return
+                        }
+                        complition(true)
+                    })
+                }
             })
             
             complition(true)
