@@ -28,7 +28,7 @@ final class DataBaseManager {
 extension DataBaseManager {
     
     public func userExist(with email: String,
-                          complition: @escaping((Bool) -> Void)){
+                          complition: @escaping((Bool) -> Void)) {
         
         var safeEmail = email.replacingOccurrences(of: ".", with: "_")
         safeEmail = safeEmail.replacingOccurrences(of: "@", with: "_")

@@ -55,5 +55,15 @@ class NewConversationViewController: UIViewController {
 }
 extension NewConversationViewController: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        guard let text = searchBar.text, !text.replacingOccurrences(of: " ", with: "").isEmpty else {
+            return
+        }
+        
+        self.searchUsers(query: text)
+        
+    }
+    
+    func searchUsers(query: String) {
+        
     }
 }
