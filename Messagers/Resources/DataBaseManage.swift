@@ -54,6 +54,12 @@ extension DataBaseManager {
                 complition(false)
                 return
             }
+            
+            self.database.child("users").observeSingleEvent(of: .value, with: { snapshot in
+                
+                
+            })
+            
             complition(true)
         })
     }

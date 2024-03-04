@@ -139,8 +139,8 @@ class LoginViewController: UIViewController {
             DispatchQueue.main.async {
                 strongSelf.spinner.dismiss()
             }
-           
             
+           
             guard let result = authResult, error == nil else {
                 print("Failed with log in .....")
                 return
@@ -148,6 +148,7 @@ class LoginViewController: UIViewController {
             
             let user = result.user
             
+           
             UserDefaults.standard.set(email, forKey: "email")
             
             print("Logget In user: \(user)")
