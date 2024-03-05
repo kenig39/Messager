@@ -33,7 +33,7 @@ extension DataBaseManager {
         var safeEmail = email.replacingOccurrences(of: ".", with: "_")
         safeEmail = safeEmail.replacingOccurrences(of: "@", with: "_")
         
-       
+        
         database.child(safeEmail).observeSingleEvent(of: .value, with: {snapShot in
             guard snapShot.value as? String != nil else {
                 complition(false)
@@ -93,8 +93,16 @@ extension DataBaseManager {
             complition(true)
         })
     }
+    
+    
+    public func getAllUsers(completion: @escaping(Result<[[String: String]], Error>) -> Void){
+        database.child("users").observeSingleEvent(of: .value, with: {snapshot in
+            guard let value = snapshot.value as? [[String: String]] else {
+                completion(.failure(<#T##Error#>))
+            }
+        })
+    }
 }
-
 struct ChatAppUser {
     let firstName: String
     let lastName: String

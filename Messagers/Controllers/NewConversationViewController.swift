@@ -74,8 +74,11 @@ extension NewConversationViewController: UISearchBarDelegate {
         if hasFetched {
             // if it does: filter
         }
+        else {
+            // if not fetch then filter
+        }
         
-        // if not fetch then filter
+        
         
         //update the UI: eiter show resalts
     }
