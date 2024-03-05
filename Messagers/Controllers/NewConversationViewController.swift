@@ -13,6 +13,10 @@ class NewConversationViewController: UIViewController {
     
     private let spinner = JGProgressHUD()
     
+    private var users = [[String: String]]()
+    
+    private var hasFetched = false
+    
     private let searchBar: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.placeholder = "Serach for users...."
@@ -59,11 +63,20 @@ extension NewConversationViewController: UISearchBarDelegate {
             return
         }
         
+        spinner.show(in: view)
+        
         self.searchUsers(query: text)
         
     }
     
     func searchUsers(query: String) {
+        // check if array has firebase
+        if hasFetched {
+            // if it does: filter
+        }
         
+        // if not fetch then filter
+        
+        //update the UI: eiter show resalts
     }
 }
