@@ -90,4 +90,10 @@ extension NewConversationViewController: UISearchBarDelegate {
         
         //update the UI: eiter show resalts
     }
+    
+    func filterUsers(with term: String){
+        guard hasFetched else {
+            return
+        }
+    }
 }
