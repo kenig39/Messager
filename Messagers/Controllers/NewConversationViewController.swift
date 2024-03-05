@@ -76,6 +76,14 @@ extension NewConversationViewController: UISearchBarDelegate {
         }
         else {
             // if not fetch then filter
+            DataBaseManager.shared.getAllUsers(completion: {[weak self] result in
+                switch result {
+                case .success(let usersCollection):
+                    self?.users = usersCollection
+                case .failure(let error):
+                    print("Failed to get users: \(error)")
+                }
+            })
         }
         
         
