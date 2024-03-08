@@ -15,6 +15,8 @@ class NewConversationViewController: UIViewController {
     
     private var users = [[String: String]]()
     
+    private var results = [[String: String]]()
+    
     private var hasFetched = false
     
     private let searchBar: UISearchBar = {
@@ -63,6 +65,7 @@ extension NewConversationViewController: UISearchBarDelegate {
             return
         }
         
+        results.removeAll()
         spinner.show(in: view)
         
         self.searchUsers(query: text)
@@ -95,5 +98,12 @@ extension NewConversationViewController: UISearchBarDelegate {
         guard hasFetched else {
             return
         }
+        let results: [[String: String]] = self.users.filter({
+            guard let name = $0["name"]?.lowercased() else {
+                return false
+            }
+            return name.hasPrefix(term.lowercased())
+        })
+        self.results = results
     }
 }

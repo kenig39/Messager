@@ -99,29 +99,30 @@ extension DataBaseManager {
         database.child("users").observeSingleEvent(of: .value, with: {snapshot in
             guard let value = snapshot.value as? [[String: String]] else {
                 completion(.failure(DatabaseError.failedToFetch))
-            return
-        }
+                return
+            }
             completion(.success(value))
-    })
-}
+        })
+    }
     
     public enum DatabaseError: Error {
         case failedToFetch
     }
     
-struct ChatAppUser {
-    let firstName: String
-    let lastName: String
-    let emailAddres: String
-  
-    
-    var safeEmail: String {
-        var safeEmail = emailAddres.replacingOccurrences(of: ".", with: "_")
-        safeEmail = safeEmail.replacingOccurrences(of: "@", with: "_")
-        return safeEmail
+    struct ChatAppUser {
+        let firstName: String
+        let lastName: String
+        let emailAddres: String
+        
+        
+        var safeEmail: String {
+            var safeEmail = emailAddres.replacingOccurrences(of: ".", with: "_")
+            safeEmail = safeEmail.replacingOccurrences(of: "@", with: "_")
+            return safeEmail
+        }
+        
+        var profilePictureFilenmae: String {
+            return "\(safeEmail)_profile_picture.png"
+        }
     }
-    
-    var profilePictureFilenmae: String {
-        return "\(safeEmail)_profile_picture.png"
-    }
-}
+
