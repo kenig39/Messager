@@ -45,6 +45,12 @@ class NewConversationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.addSubview(noresultLable)
+        view.addSubview(tableView)
+        
+        tableView.dataSource = self
+        tableView.delegate = self
+        
         searchBar.delegate = self
         view.backgroundColor = .white
         navigationController?.navigationBar.topItem?.titleView = searchBar
@@ -104,6 +110,20 @@ extension NewConversationViewController: UISearchBarDelegate {
             }
             return name.hasPrefix(term.lowercased())
         })
+        
         self.results = results
+        
+        updateUI()
+    }
+    
+    func updateUI() {
+        if results.isEmpty {
+            self.noresultLable.isHidden = false
+            self.tableView.isHidden = true
+        } else {
+            self.noresultLable.isHidden = true
+            self.tableView.isHidden = false
+            self.tableView.reloadData()
+        }
     }
 }

@@ -108,7 +108,8 @@ extension DataBaseManager {
     public enum DatabaseError: Error {
         case failedToFetch
     }
-    
+}
+
     struct ChatAppUser {
         let firstName: String
         let lastName: String
