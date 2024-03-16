@@ -28,7 +28,8 @@ class NewConversationViewController: UIViewController {
     private let tableView: UITableView = {
         let table = UITableView()
         table.isHidden = true
-        table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        table.register(UITableViewCell.self,
+                       forCellReuseIdentifier: "cell")
        return table
     }()
     
@@ -54,7 +55,10 @@ class NewConversationViewController: UIViewController {
         searchBar.delegate = self
         view.backgroundColor = .white
         navigationController?.navigationBar.topItem?.titleView = searchBar
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Cancel" , style: .done, target: self, action: #selector(dismissSelf))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Cancel" ,
+                                                            style: .done,
+                                                            target: self,
+                                                            action: #selector(dismissSelf))
         
         searchBar.becomeFirstResponder()
     }
@@ -96,7 +100,8 @@ extension NewConversationViewController: UITableViewDelegate, UITableViewDataSou
 }
 
 extension NewConversationViewController: UISearchBarDelegate {
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let text = searchBar.text, !text.replacingOccurrences(of: " ", with: "").isEmpty else {
             return
         }
@@ -159,7 +164,8 @@ extension NewConversationViewController: UISearchBarDelegate {
         if results.isEmpty {
             self.noresultLable.isHidden = false
             self.tableView.isHidden = true
-        } else {
+        }
+        else {
             self.noresultLable.isHidden = true
             self.tableView.isHidden = false
             self.tableView.reloadData()

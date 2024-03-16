@@ -48,14 +48,19 @@ extension DataBaseManager {
         database.child(user.safeEmail).setValue([
             "first_name": user.firstName,
             "last_name": user.lastName
-        ], withCompletionBlock: { error, _ in
+        ], withCompletionBlock: {[weak self] error, _ in
+            
+            guard let strongSelf = self else {
+                return
+            }
+            
             guard error == nil else {
                 print("failed ot write to dataBase")
                 complition(false)
                 return
             }
             
-            self.database.child("users").observeSingleEvent(of: .value, with: { snapshot in
+            strongSelf.database.child("users").observeSingleEvent(of: .value, with: { snapshot in
                 if var usersCollections = snapshot.value as? [[String: String]] {
                     // append to user dictionary
                     let newElement = [
@@ -64,7 +69,7 @@ extension DataBaseManager {
                     ]
                     usersCollections.append(newElement)
                     
-                    self.database.child("users").setValue(usersCollections, withCompletionBlock: { error, _ in
+                    strongSelf.database.child("users").setValue(usersCollections, withCompletionBlock: { error, _ in
                         guard error == nil else {
                             complition(false)
                             return
@@ -75,12 +80,15 @@ extension DataBaseManager {
                 else {
                     //create that array
                     let newCollection: [[String: String]] = [
-                        ["name": user.firstName + "" + user.lastName,
+                        
+                        [
+                         "name": user.firstName + " " + user.lastName,
                          "email": user.safeEmail
                         ]
                         
                     ]
-                    self.database.child("users").setValue(newCollection, withCompletionBlock: { error, _ in
+                    
+                    strongSelf.database.child("users").setValue(newCollection, withCompletionBlock: { error, _ in
                         guard error == nil else {
                             complition(false)
                             return
@@ -90,7 +98,6 @@ extension DataBaseManager {
                 }
             })
             
-            complition(true)
         })
     }
     
