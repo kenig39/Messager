@@ -11,7 +11,7 @@ import JGProgressHUD
 class NewConversationViewController: UIViewController {
 
     
-    private let spinner = JGProgressHUD()
+    private let spinner = JGProgressHUD(style: .dark )
     
     private var users = [[String: String]]()
     
@@ -114,6 +114,7 @@ extension NewConversationViewController: UISearchBarDelegate {
         // check if array has firebase
         if hasFetched {
             // if it does: filter
+            filterUsers(with: query)
         }
         else {
             // if not fetch then filter
@@ -131,10 +132,11 @@ extension NewConversationViewController: UISearchBarDelegate {
         
         
         
-        //update the UI: eiter show resalts
+        
     }
     
-    func filterUsers(with term: String){
+    func filterUsers(with term: String) {
+        //update the UI: eiter show resalts or show no results lable
         guard hasFetched else {
             return
         }
