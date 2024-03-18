@@ -58,17 +58,22 @@ class ChatViewController: MessagesViewController {
         messageInputBar.delegate = self
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        messageInputBar.inputTextView.becomeFirstResponder()
+    }
 
 }
 
 extension ChatViewController: InputBarAccessoryViewDelegate {
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
-        guard text.replacingOccurrences(of: " ", with: "").isEmpty else {
+        guard !text.replacingOccurrences(of: " ", with: "").isEmpty else {
             return
         }
         
-        //send message
+        print("sending: \(text)")
         
+        //send message
         if isNewConversation {
             // create convo in database
         }

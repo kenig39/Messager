@@ -116,6 +116,28 @@ extension DataBaseManager {
         case failedToFetch
     }
 }
+// MARK: - sending messages / conversation
+extension DataBaseManager {
+    
+  public func  createNewConversation(with otherUserEmail:String, firstMessage: String, completion: @escaping(Bool) -> Void ) {
+        
+    }
+    
+    ///Fetches and returns all conversation for user with passed in email
+    public func getAllConversations(for email: String, completion: @escaping (Result<String, Error>) -> Void) {
+        
+    }
+    
+    
+    public func getAllMessagesForConversation(with id: String, complition: @escaping(Result<String, Error>) -> Void) {
+        
+    }
+    
+    /// send a message with target for a given
+    public func sendMessage(to conversation: String, message: Message, comptletion: @escaping(Bool) -> Void) {
+        
+    }
+}
 
     struct ChatAppUser {
         let firstName: String
