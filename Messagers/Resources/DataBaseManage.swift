@@ -119,6 +119,7 @@ extension DataBaseManager {
 // MARK: - sending messages / conversation
 extension DataBaseManager {
     
+    //create new conversation with target user email
   public func  createNewConversation(with otherUserEmail:String, firstMessage: String, completion: @escaping(Bool) -> Void ) {
         
     }

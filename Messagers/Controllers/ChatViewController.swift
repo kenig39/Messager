@@ -32,10 +32,16 @@ class ChatViewController: MessagesViewController {
 
     private var messages = [Message]()
     
-    private let selfSender = Sender(photoURL: "",
-                                    senderId: "1",
-                                    displayName: "Jon Smith")
-    
+    private var selfSender : Sender? {
+        guard let email = UserDefaults.standard.value(forKey: "email") else {
+            
+            return nil
+        }
+        Sender(photoURL: "",
+               senderId: email,
+               displayName: "Jon Smith")
+        
+    }
     
     init(with email: String) {
         self.otherUserEmai = email
@@ -76,6 +82,12 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
         //send message
         if isNewConversation {
             // create convo in database
+            
+            let message = Message(sender: <#T##SenderType#>,
+                                  messageId: <#T##String#>,
+                                  sentDate: Date(),
+                                  kind: .text(text))
+            DataBaseManager.shared.createNewConversation(with: otherUserEmai, firstMessage: <#T##String#>, completion: <#T##(Bool) -> Void#>)
         }
         else {
             // append to exiting conversation data 
@@ -85,8 +97,12 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
 
 extension ChatViewController: MessagesDataSource, MessagesLayoutDelegate, MessagesDisplayDelegate {
     
-    func currentSender() -> MessageKit.SenderType {
-        return selfSender
+    func currentSender() -> SenderType {
+        if let sender = selfSender {
+            return sender
+        }
+        fatalError("self sender is nil shoud be cached")
+        return Sender(photoURL: "", senderId: "", displayName: "")
     }
     
     func messageForItem(at indexPath: IndexPath, in messagesCollectionView: MessageKit.MessagesCollectionView) -> MessageKit.MessageType {
