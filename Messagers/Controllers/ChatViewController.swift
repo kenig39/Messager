@@ -26,6 +26,14 @@ struct Sender: SenderType {
 
 class ChatViewController: MessagesViewController {
     
+    public static var dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .long
+        formatter.locale = .current
+        return formatter
+    }()
+    
     public let otherUserEmai: String
     public var isNewConversation = false
     
@@ -73,9 +81,12 @@ class ChatViewController: MessagesViewController {
 
 extension ChatViewController: InputBarAccessoryViewDelegate {
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
-        guard !text.replacingOccurrences(of: " ", with: "").isEmpty else {
+        guard !text.replacingOccurrences(of: " ", with: "").isEmpty,
+        let selfSender = self.selfSender,
+        let messageId = createMessageId() else {
             return
-        }
+                
+            }
         
         print("sending: \(text)")
         
@@ -83,8 +94,8 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
         if isNewConversation {
             // create convo in database
             
-            let message = Message(sender: <#T##SenderType#>,
-                                  messageId: <#T##String#>,
+            let message = Message(sender: selfSender,
+                                  messageId: messageId,
                                   sentDate: Date(),
                                   kind: .text(text))
             DataBaseManager.shared.createNewConversation(with: otherUserEmai, firstMessage: <#T##String#>, completion: <#T##(Bool) -> Void#>)
@@ -92,6 +103,18 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
         else {
             // append to exiting conversation data 
         }
+    }
+    
+    private func createMessageId() -> String? {
+        // data otherUseremail, senderemail
+        
+        guard let currentUserEmail = UserDefaults.standard.value(forKey: "email") else {
+            return nil
+        }
+        
+        let newIndentifier = "\(otherUserEmai)_\(currentUserEmail)"
+        
+        return newIndentifier
     }
 }
 
@@ -101,8 +124,8 @@ extension ChatViewController: MessagesDataSource, MessagesLayoutDelegate, Messag
         if let sender = selfSender {
             return sender
         }
-        fatalError("self sender is nil shoud be cached")
-        return Sender(photoURL: "", senderId: "", displayName: "")
+        fatalError("self sender is nil email shoud be cached")
+        return Sender(photoURL: "", senderId: "12", displayName: "")
     }
     
     func messageForItem(at indexPath: IndexPath, in messagesCollectionView: MessageKit.MessagesCollectionView) -> MessageKit.MessageType {
