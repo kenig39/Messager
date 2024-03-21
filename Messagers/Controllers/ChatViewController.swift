@@ -41,11 +41,11 @@ class ChatViewController: MessagesViewController {
     private var messages = [Message]()
     
     private var selfSender : Sender? {
-        guard let email = UserDefaults.standard.value(forKey: "email") else {
+        guard let email = UserDefaults.standard.value(forKey: "email") as? String else {
             
             return nil
         }
-        Sender(photoURL: "",
+        return Sender(photoURL: "",
                senderId: email,
                displayName: "Jon Smith")
         
@@ -98,7 +98,13 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
                                   messageId: messageId,
                                   sentDate: Date(),
                                   kind: .text(text))
-            DataBaseManager.shared.createNewConversation(with: otherUserEmai, firstMessage: <#T##String#>, completion: <#T##(Bool) -> Void#>)
+            DataBaseManager.shared.createNewConversation(with: otherUserEmai, firstMessage: message, completion: {  success in
+                if success {
+                    print("message sent")
+                } else {
+                    print("failed to sent")
+                }
+            })
         }
         else {
             // append to exiting conversation data 
@@ -112,8 +118,9 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
             return nil
         }
         
+        let dateString = Self.dateFormatter.string(from: Date())
         let newIndentifier = "\(otherUserEmai)_\(currentUserEmail)"
-        
+        print("created messageId: \(newIndentifier)")
         return newIndentifier
     }
 }

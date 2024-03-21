@@ -120,7 +120,7 @@ extension DataBaseManager {
 extension DataBaseManager {
     
     //create new conversation with target user email
-  public func  createNewConversation(with otherUserEmail:String, firstMessage: String, completion: @escaping(Bool) -> Void ) {
+  public func  createNewConversation(with otherUserEmail:String, firstMessage: Message, completion: @escaping(Bool) -> Void ) {
         
     }
     
